@@ -1,0 +1,158 @@
+  .container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    height : 90vh;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .OTP {
+    cursor: pointer;
+    font-size: 14px; /* Adjust the font size as needed */
+    padding: 5px 10px; /* Adjust the padding to reduce button size */
+    background-color: red; /* Change the background color to red */
+    color: white; /* Set text color to white or a color that contrasts well with red */
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px; /* Adjust margin as needed */
+  }
+
+  .inputRadio{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    background: #fff;
+    border-radius: 6px;
+    gap:20px;
+  }
+
+  .image-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:auto;
+  }
+
+  .image{
+    width: 50%;
+    height: 60vh;
+  }
+
+  .image2{
+    width: 87%;
+    height: 50vh;
+  }
+
+  .image3{
+    width: 50%;
+    
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+.text{
+    color:#222;
+    font-family: Poppins;
+    font-size:48px;
+    font-weight: 700;
+}
+
+.mainHeading{
+    color:#222;
+    font-family: Poppins;
+    font-size:30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.inputs{
+    margin-top: 55px;
+    color:#222;
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 50px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.input img{
+    margin:0px 30px;
+}
+
+.input input{
+    height: 50px;
+    width: 350px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #797979;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 10px; /* Reduced margin */
+  }
+  
+
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 59px;
+    color: #fff;
+    background: #4c00b4;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.gray{
+    background: #eaeaea;
+    color: #676767;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 900px;
+  background: #fff;
+  margin: 20px auto;
+  box-shadow: 0 15px 30px 0.17px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.google{
+  display: flex;
+  padding: 20px;
+  padding-bottom: 2px;
+  justify-content: center;
+}
+
+
