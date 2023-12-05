@@ -18,7 +18,6 @@ export default function DisplayData(props) {
     document.title = props.pageTitle;
     const token = localStorage.getItem('token');
 
-  
     axios.get('http://localhost:5000/api/getAllBills', {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -101,8 +100,7 @@ export default function DisplayData(props) {
         },
       })
         .then(response => {
-          console.log('Delete successful:', response.data);
-          toast.success("Data Added Deleted Successfully for Bill Id: "+row.billId);
+          toast.success("Data Deleted Successfully for Bill Id: "+row.billId);
           axios.get('http://localhost:5000/api/getAllBills', {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -127,9 +125,7 @@ export default function DisplayData(props) {
 
   return (
     <>
-      <div className="mainHeading">Billing Application - Admin Portal</div>
-      {/* <Button variant="danger" onClick={() => handleLogout()}>Logout</Button>
-      <Button variant="success" onClick={() => handleAdd()}>Add Data</Button> */}
+      <div className="mainHeading">Admin Portal</div>
       <div className="container">
         <DataTable columns={columns} data={data} fixedHeader></DataTable>
       </div>

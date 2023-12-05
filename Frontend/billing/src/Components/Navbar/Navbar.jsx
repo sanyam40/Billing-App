@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 export default function Navbar() {
   const location = useLocation();
-  const email = location.state ? location.state.userEmail : null;
+  const email = location.state ? location.state.Email : null;
   const navigate = useNavigate();
   const [showNavbar] = useState(false);
   const isAdminPage = location.pathname.startsWith("/Admin") || location.pathname.startsWith("/admin-portal");
@@ -41,7 +41,7 @@ export default function Navbar() {
               <NavLink to="/blog">Aboutus</NavLink>
             </li>
             <li>
-              <NavLink to="/Admin/AddData">ADD DATA</NavLink>
+              <NavLink to="/Admin/AddData">Generate New Bill</NavLink>
             </li>
             <li>
             <NavLink to="/" onClick={handleLogout}>LOGOUT ({email})</NavLink>    

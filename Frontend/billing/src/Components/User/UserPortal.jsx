@@ -13,7 +13,7 @@ export default function UserPortal(props) {
 
   const [data, setData] = useState([]);
   const location = useLocation();
-  const m=location.state.userEmail;
+  const m=location.state.Email;
 
   useEffect(() => {
     document.title = props.pageTitle;
@@ -26,7 +26,6 @@ export default function UserPortal(props) {
           },
         });
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -115,10 +114,10 @@ export default function UserPortal(props) {
     rzp1.open();
   };
 
-  const handleRazorPay = async (row) => {  // Pass the row as an argument
+  const handleRazorPay = async (row) => { 
     try {
       const orderUrl = "http://localhost:5000/api/orders";
-      const { data } = await axios.post(orderUrl, { amount: row.billAmount });  // Correct string interpolation
+      const { data } = await axios.post(orderUrl, { amount: row.billAmount }); 
       console.log(data);
       initPayment(data.data);
     } catch (error) {
@@ -153,7 +152,7 @@ export default function UserPortal(props) {
 
   return (
     <>
-      <div className="mainHeading">Billing Application - User Portal</div>
+      <div className="mainHeading">User Portal</div>
       <div className="container">
         <DataTable columns={columns} data={data} fixedHeader></DataTable>
       </div>
