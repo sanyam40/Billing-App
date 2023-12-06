@@ -8,6 +8,17 @@
     margin-bottom: auto;
   }
 
+  .clear{
+    cursor: pointer;
+    font-size: 21px;
+    padding: 0px 6px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin-top: -10px;
+  }
+
   .OTP {
     cursor: pointer;
     font-size: 12px;

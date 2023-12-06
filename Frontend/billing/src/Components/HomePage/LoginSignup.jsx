@@ -140,6 +140,12 @@ const LoginSignup = (props) => {
     }
   };
 
+  const clearForm = () => {
+    setEmailValue("");
+    setPasswordValue("");
+    setOTP("");
+  }
+
   return (
     <>
       <div className="container">
@@ -202,6 +208,11 @@ const LoginSignup = (props) => {
             }}
           />
         </GoogleOAuthProvider>
+        <div className="inputRadio">
+                    <div className="clear" onClick={() => clearForm()}>
+                      Clear
+                    </div>
+                  </div>
       </div>
           <div className="submit-container">
             <div
