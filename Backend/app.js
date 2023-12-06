@@ -5,20 +5,18 @@ const userRouter=require('./routes/userRoutes')
 const adminRouter=require('./routes/adminRoutes')
 const app = express();
 
-// Enable CORS
 app.use(cors());
-
 app.use(express.json());
 connection();
 
 app.use('/api',userRouter)
 app.use('/api',adminRouter)
 
-app.listen(5000, (error) => {
+app.listen(process.env.PORT, (error) => {
     if (error) {
-        console.log("error starting server");
+        console.log(`Error starting server + ${error}`);
     }
     else {
-        console.log("server started at port 5000");
+        console.log(`Backend Server At Port No : ${process.env.PORT}`);
     }
 });

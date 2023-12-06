@@ -1,7 +1,5 @@
 const {default: mongoose} = require('mongoose');
 
-//bill id, bill title, user email, bill amount, bill gen date, bill due date, status;
-
 const billSchema = new mongoose.Schema({
     billId: {type:String, required:true},
     billTitle: {type:String, required:true},

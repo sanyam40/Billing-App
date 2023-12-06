@@ -1,5 +1,6 @@
 const sendEmail = require('../Helper/mailer');
 const billModel = require('../model/billModel');
+const userModel = require('../model/userModel');
 const v4=require('uuid').v4;
 
 const billCreation = async (req, res) => {
@@ -39,7 +40,7 @@ const updateBills= async(req,res)=>{
             billAmount:billAmount,
             status:status
         }, 
-        {new:true}  //return updated task
+        {new:true} 
         );
         if (!task) {
             res.status(404).json({message:"Task not found"})
@@ -79,5 +80,23 @@ const getAllBills = async (req, res) => {
     }
 };
 
-module.exports = {billCreation, updateBills, deleteBills, getAllBills}
+const getUserEmails=async(req,res)=>{
+    try {
+      const users = await userModel.find({userType:'USER'});
+      if (!users || users.length === 0) {
+        return res.status(404).json({ message: 'No users found' });
+      }
+      else {
+        const emailList = users.map(user => user.userMail);
+        res.status(200).json(emailList);
+      }
+      
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Internal error' });
+    }
+  }
+  
+
+module.exports = {billCreation, updateBills, deleteBills, getAllBills,getUserEmails}
 

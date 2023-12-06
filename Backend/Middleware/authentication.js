@@ -1,31 +1,54 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const secretKey = process.env.SECRET_KEY;
 
-function authenticateJWT(req, res, next) {
+// Authentication Middleware
+const authenticateJWT = (req, res, next) => {
   const bearerHeader = req.headers['authorization'];
 
   if (typeof bearerHeader !== 'undefined') {
     const bearer = bearerHeader.split(" ");
     const token = bearer[1];
-    req.token = token;
+
+    if (!token) {
+      return res.status(401).json({ success: false, message: "Token not found" });
+    }
 
     try {
-      jwt.verify(req.token, secretKey, (err, authData) => {
-        if (err) {
-          res.status(403).json({ message: "Forbidden: Invalid Token" });
-        } else {
-          req.user = authData.user;
-          next();
-        }
-      });
-    } catch (e) {
-      console.error(e);
-      res.status(401).json({ msg: 'Token is not valid' });
+      const payload = jwt.verify(token, '00');
+      req.user = payload;
+      next();
+    } catch (error) {
+      console.log(error);
+      return res.status(401).json({ success: false, message: "Invalid Token" });
     }
   } else {
     res.status(403).json({ message: "Token not found" });
   }
-}
+};
 
-module.exports = { authenticateJWT };
+// Authorization Middleware
+const isUser = (req, res, next) => {
+  try {
+    if (!req.user || req.user.role !== "USER") {
+      return res.status(401).json({ success: false, message: "Unauthorized Access, This is a route for Users only" });
+    }
+    next();
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: "User role is not matching" });
+  }
+};
+
+const isAdmin = (req, res, next) => {
+  try {
+    if (!req.user || req.user.role !== 'ADMIN') {
+      return res.status(401).json({ success: false, message: "Unauthorized Access, This is a route for ADMIN only" });
+    }
+    next();
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, message: "User role is not matching" });
+  }
+};
+
+module.exports = { authenticateJWT, isAdmin,isUser };

@@ -89,6 +89,7 @@ export default function UserPortal(props) {
     },
   ];
   const initPayment = (data) => {
+    const token = localStorage.getItem('token');
     const options = {
       key: "rzp_test_PYbadXP2xUO3u8",
       amount: data.amount,
@@ -100,8 +101,15 @@ export default function UserPortal(props) {
       handler: async (response) => {
         try {
           const verifyUrl = "http://localhost:5000/verify";
-          const { data } = await axios.post(verifyUrl, response);
-          console.log(data);
+          const { data } = await axios.post(
+            verifyUrl,
+            response,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
         } catch (error) {
           console.log(error);
         }
@@ -116,34 +124,37 @@ export default function UserPortal(props) {
 
   const handleRazorPay = async (row) => { 
     try {
+      const token = localStorage.getItem('token');
       const orderUrl = "http://localhost:5000/api/orders";
-      const { data } = await axios.post(orderUrl, { amount: row.billAmount }); 
-      console.log(data);
+      const { data } = await axios.post(
+        orderUrl,
+        { amount: row.billAmount },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      ); 
       initPayment(data.data);
     } catch (error) {
       console.log(error);
     }
   };
-
+  
   const handlePay = async (row) => {
     try {
       const token = localStorage.getItem('token');
-  
       const response = await axios.put(`http://localhost:5000/api/pay/${row.billId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
-      console.log('Update successful:', response.data); 
-  
-      toast.success('Payment Done!');
-  
+      });  
+      toast.success('Payment Done!'); 
       const response2 = await axios.get(`http://localhost:5000/api/getUserBills/${m}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-  
       setData(response2.data);
     } catch (error) {
       console.error('Error updating payment:', error);
