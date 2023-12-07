@@ -31,7 +31,6 @@ This Billing Application is a comprehensive solution created using the MERN (Mon
 <img width="960" alt="Screenshot 2023-12-07 182004" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/e1917bbd-92de-4685-a489-70f457fd4ef1">
 <img width="960" alt="Screenshot 2023-12-07 182012" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/0f820d43-cf66-4c13-b454-e1c68c10904c">
 <img width="960" alt="Screenshot 2023-12-07 182034" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/d04b24e4-819e-4323-beab-a3b1511f2031">
-<img width="960" alt="Screenshot 2023-12-07 182253" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/964c8b81-0f3a-426d-b110-68ffb6b7efee">
 <img width="960" alt="Screenshot 2023-12-07 182049" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/b8206841-c63b-458d-a7dd-14adf60545ff">
 <img width="960" alt="Screenshot 2023-12-07 182102" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/e54be758-2a36-465f-8ae8-5d865bb3b277">
 <img width="960" alt="Screenshot 2023-12-07 182216" src="https://github.com/sanyam40/Billing-Application_v2/assets/87993985/4028829f-0761-42fb-85f9-4e3cc6a2ed04">
