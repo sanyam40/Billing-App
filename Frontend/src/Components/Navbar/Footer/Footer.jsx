@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <nav className="navbarr">
         <div className="footer">
-            <i>© 2023,All right serverd</i>
+            <i>© 2023,All right Reserverd</i>
         </div>
     </nav>
   )

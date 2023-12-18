@@ -38,7 +38,7 @@ export default function Navbar() {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/blog">Aboutus</NavLink>
+              <NavLink to="/">Aboutus</NavLink>
             </li>
             <li>
               <NavLink to="/Admin/AddData">Generate New Bill</NavLink>
@@ -53,7 +53,7 @@ export default function Navbar() {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/blog">Aboutus</NavLink>
+              <NavLink to="/">Aboutus</NavLink>
             </li>
             <li>
                 <NavLink to="/" onClick={handleLogout}>LOGOUT ({email})</NavLink>
@@ -65,13 +65,10 @@ export default function Navbar() {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/blog">Aboutus</NavLink>
+                <NavLink to="/">Aboutus</NavLink>
               </li>
               <li>
-                <NavLink to="/projects">Login</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about">SignUp</NavLink>
+                <NavLink to="/">Login/SignUp</NavLink>
               </li>
             </ul>
           )}
