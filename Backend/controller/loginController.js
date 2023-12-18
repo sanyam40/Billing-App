@@ -3,6 +3,7 @@ const userModel = require('../model/userModel');
 const secretKey = process.env.SECRET_KEY;
 const encryptPassword = require('../utils/bcrypt');
 const jwt = require('jsonwebtoken');
+const sendEmail=require('../Helper/mailer')
 
 var otp = 0;
 
