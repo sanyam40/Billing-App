@@ -21,7 +21,7 @@ export default function AddData(props) {
 
   useEffect(() => {
     // Fetch user emails from the API
-    axios.get('http://localhost:5000/api/getEmails', {
+    axios.get('https://billing-application-backend.onrender.com/api/getEmails', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -41,7 +41,7 @@ export default function AddData(props) {
       userEmail
     };
     
-    axios.post('http://localhost:5000/api/billCreation', newData, {
+    axios.post('https://billing-application-backend.onrender.com/api/billCreation', newData, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',

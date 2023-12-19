@@ -18,7 +18,7 @@ export default function DisplayData(props) {
     document.title = props.pageTitle;
     const token = localStorage.getItem('token');
 
-    axios.get('http://localhost:5000/api/getAllBills', {
+    axios.get('https://billing-application-backend.onrender.com/api/getAllBills', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

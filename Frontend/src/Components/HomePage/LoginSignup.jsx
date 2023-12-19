@@ -34,7 +34,7 @@ const LoginSignup = (props) => {
       userOTP: userOTP,
     };
 
-    const url = "http://localhost:5000/api/register";
+    const url = "https://billing-application-backend.onrender.com/api/register";
 
     try {
       const response = await fetch(url, {
@@ -60,7 +60,7 @@ const LoginSignup = (props) => {
   };
 
   const handleOTP = async () => {
-    const url = "http://localhost:5000/api/generateOTP";
+    const url = "https://billing-application-backend.onrender.com/api/generateOTP";
     const data = {
       userMail: userMail,
     };
@@ -94,7 +94,7 @@ const LoginSignup = (props) => {
       userType: userType,
     };
 
-    const url = "http://localhost:5000/api/login";
+    const url = "https://billing-application-backend.onrender.com/api/login";
 
     try {
       const response = await fetch(url, {
@@ -128,6 +128,7 @@ const LoginSignup = (props) => {
 
   const handleGoogleLogin = (credentialResponse) => {
     const decoded = jwtDecode(credentialResponse.credential);
+    console.log(credentialResponse);
     setEmailValue(decoded.email);
     setPasswordValue(decoded.sub);
 

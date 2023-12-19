@@ -32,7 +32,7 @@ export default function UpdateData(props) {
       userEmail
     };
 
-    axios.put(`http://localhost:5000/api/updateBills/${BillId}`, updatedData, {
+    axios.put(`https://billing-application-backend.onrender.com/api/updateBills/${BillId}`, updatedData, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ export default function UserPortal(props) {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/getUserBills/${m}`, {
+        const response = await axios.get(`https://billing-application-backend.onrender.com/api/getUserBills/${m}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -100,7 +100,7 @@ export default function UserPortal(props) {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyUrl = "http://localhost:5000/verify";
+          const verifyUrl = "https://billing-application-backend.onrender.com/api/verify";
           const { data } = await axios.post(
             verifyUrl,
             response,
@@ -110,6 +110,8 @@ export default function UserPortal(props) {
               },
             }
           );
+          toast.success('Payment Done!');
+          console.log(data);
         } catch (error) {
           console.log(error);
         }
@@ -125,7 +127,7 @@ export default function UserPortal(props) {
   const handleRazorPay = async (row) => { 
     try {
       const token = localStorage.getItem('token');
-      const orderUrl = "http://localhost:5000/api/orders";
+      const orderUrl = "https://billing-application-backend.onrender.com/api/orders";
       const { data } = await axios.post(
         orderUrl,
         { amount: row.billAmount },
@@ -136,6 +138,8 @@ export default function UserPortal(props) {
         }
       ); 
       initPayment(data.data);
+      handlePay(row);
+      toast.success('Payment Done!'); 
     } catch (error) {
       console.log(error);
     }
@@ -144,17 +148,18 @@ export default function UserPortal(props) {
   const handlePay = async (row) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:5000/api/pay/${row.billId}`, {}, {
+      const response = await axios.put(`https://billing-application-backend.onrender.com/api/pay/${row.billId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });  
       toast.success('Payment Done!'); 
-      const response2 = await axios.get(`http://localhost:5000/api/getUserBills/${m}`, {
+      const response2 = await axios.get(`https://billing-application-backend.onrender.com/api/getUserBills/${m}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+
       setData(response2.data);
     } catch (error) {
       console.error('Error updating payment:', error);
