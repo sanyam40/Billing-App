@@ -94,14 +94,14 @@ export default function DisplayData(props) {
     if (isConfirmed) {
       console.log('Delete confirmed for row:', row);
 
-      axios.delete(`http://localhost:5000/api/deleteBills/${row.billId}`, {
+      axios.delete(`https://billing-application-backend.onrender.com/api/deleteBills/${row.billId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
         .then(response => {
           toast.success("Data Deleted Successfully for Bill Id: "+row.billId);
-          axios.get('http://localhost:5000/api/getAllBills', {
+          axios.get('https://billing-application-backend.onrender.com/api/getAllBills', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
