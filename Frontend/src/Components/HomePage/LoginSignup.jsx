@@ -201,7 +201,7 @@ const LoginSignup = (props) => {
           </div>
 
           <div className="google">
-        <GoogleOAuthProvider clientId="237527326931-a50s4bpke0pdavbge7gg8npsv4a2n272.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="93882689907-mbtbgqrqu3hc5cfvig67avm46m8ccvkg.apps.googleusercontent.com">
           <GoogleLogin
             onSuccess={handleGoogleLogin}
             onError={() => {
